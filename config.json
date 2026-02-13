@@ -1,0 +1,14 @@
+{
+  "base_url": "https://hpe-dev.api.try.opsramp.com",
+  "tenant_id": "4a6f2bd7-f6cd-4376-a0ff-97abad90c229",
+  "client_id": "QjCTuuMqyHEwsqUqVx7j9khc49UTCxKb",
+  "client_secret": "6DZCMqRgWYPXJxwdks6bpmbTx6jQtWYCyEjNX7UjWSQwJSdpUeUHJaqmdXN3nMsB",
+  "app_id": "PERFORMANCE-UTILIZATION",
+  "metrics": ["system_cpu_utilization"],
+  "methods": ["max"],
+  "filter_criteria": "state = \"active\" AND monitorable = \"true\"",
+  "report_format": ["xlsx"],
+  "report_name_prefix": "hourly-perf-report",
+  "start_hour": 0,
+  "token_refresh_margin_seconds": 300
+}

@@ -1,0 +1,38 @@
+# ============================================================
+# Client A — HPE Dev (example config)
+# ============================================================
+# Environment variable interpolation: use ${VAR_NAME} for secrets.
+# Example: client_secret: "${OPSRAMP_CLIENT_SECRET}"
+# ============================================================
+
+client_name: "hpe-dev"
+
+base_url: "https://hpe-dev.api.try.opsramp.com"
+tenant_id: "4a6f2bd7-f6cd-4376-a0ff-97abad90c229"
+
+auth:
+  client_id: "QjCTuuMqyHEwsqUqVx7j9khc49UTCxKb"
+  client_secret: "6DZCMqRgWYPXJxwdks6bpmbTx6jQtWYCyEjNX7UjWSQwJSdpUeUHJaqmdXN3nMsB"
+  token_refresh_margin_seconds: 7199 # refresh 119 min before expiry
+
+report:
+  app_id: "PERFORMANCE-UTILIZATION"
+  metrics:
+    - "system_cpu_utilization"
+  methods:
+    - "max"
+  filter_criteria: 'state = "active" AND monitorable = "true"'
+  report_format:
+    - "xlsx"
+  report_name_prefix: "hourly-perf-report"
+  display_mode: "Consolidated List"
+  query_config: "summary"
+
+schedule:
+  interval_hours: 1 # one report every hour
+  total_reports_per_day: 24
+  cleanup_after_all: true # delete all reports at end of day
+  daily_start_hour_utc: 0 # start cycle at midnight UTC
+
+ssl_verify: false # gateway uses self-signed certs
+log_level: "INFO"

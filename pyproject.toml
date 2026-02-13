@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "opsramp-report-automation"
+version = "1.0.0"
+description = "Automated hourly report scheduler for OpsRamp — multi-client, config-driven."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+dependencies = [
+    "requests>=2.31.0",
+    "APScheduler>=3.10.4",
+    "PyYAML>=6.0.1",
+    "python-dotenv>=1.0.0",
+    "tenacity>=8.2.3",
+    "pydantic>=2.5.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

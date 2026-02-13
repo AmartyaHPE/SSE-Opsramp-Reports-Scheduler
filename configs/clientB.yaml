@@ -1,0 +1,36 @@
+# ============================================================
+# Client B — Example (template for new clients)
+# ============================================================
+# Copy this file, rename to your client, and fill in values.
+# Use ${ENV_VAR} syntax for secrets you don't want in the repo.
+# ============================================================
+
+client_name: "client-b"
+
+base_url: "https://your-instance.api.try.opsramp.com"
+tenant_id: "your-tenant-uuid-here"
+
+auth:
+  client_id: "${OPSRAMP_CLIENT_ID}"
+  client_secret: "${OPSRAMP_CLIENT_SECRET}"
+  token_refresh_margin_seconds: 300
+
+report:
+  app_id: "PERFORMANCE-UTILIZATION"
+  metrics:
+    - "system_cpu_utilization"
+  methods:
+    - "max"
+  filter_criteria: 'state = "active" AND monitorable = "true"'
+  report_format:
+    - "xlsx"
+  report_name_prefix: "hourly-perf-report"
+
+schedule:
+  interval_hours: 1
+  total_reports_per_day: 24
+  cleanup_after_all: true
+  daily_start_hour_utc: 0
+
+ssl_verify: false
+log_level: "INFO"
